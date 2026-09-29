@@ -1,0 +1,137 @@
+{
+	"info": {
+		"name": "Twitter Clone - FSWEB-s19-Challenge",
+		"description": "Register, Login ve Tweet CRUD icin hazir istekler. Session cookie Postman tarafindan otomatik tutulur.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1) Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"sinem\",\n  \"email\": \"sinem@example.com\",\n  \"password\": \"guclusifre1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["register"]
+				}
+			}
+		},
+		{
+			"name": "2) Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"sinem\",\n  \"password\": \"guclusifre1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["login"]
+				}
+			}
+		},
+		{
+			"name": "3) Tweet Olustur (POST /tweet)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"content\": \"Postman uzerinden attigim ilk tweet!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tweet",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["tweet"]
+				}
+			}
+		},
+		{
+			"name": "4) Kullanicinin Tweetleri (GET /tweet/findByUserId)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tweet/findByUserId?userId=3",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["tweet", "findByUserId"],
+					"query": [
+						{ "key": "userId", "value": "3" }
+					]
+				}
+			}
+		},
+		{
+			"name": "5) Tek Tweet Getir (GET /tweet/findById)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tweet/findById?id=1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["tweet", "findById"],
+					"query": [
+						{ "key": "id", "value": "1" }
+					]
+				}
+			}
+		},
+		{
+			"name": "6) Tweet Guncelle (PUT /tweet/:id)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"content\": \"Guncellenmis tweet icerigi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tweet/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["tweet", "1"]
+				}
+			}
+		},
+		{
+			"name": "7) Tweet Sil (DELETE /tweet/:id)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tweet/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["tweet", "1"]
+				}
+			}
+		}
+	]
+}
